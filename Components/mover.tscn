@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://c61ki6vvgwnr8"]
+
+[ext_resource type="Script" path="res://Components/mover.gd" id="1_axk44"]
+
+[node name="Mover" type="Node"]
+script = ExtResource("1_axk44")
+speed = 300.0
+charge_increment = 5
+max_charge = 100.0
+
+[node name="ChargeTimer" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="ChargeTimer" to="." method="_on_charge_timer_timeout"]

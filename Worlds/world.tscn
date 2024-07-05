@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf7qx8co1cpf"]
+
+[ext_resource type="Script" path="res://Worlds/player.gd" id="1_1rl21"]
+[ext_resource type="Texture2D" uid="uid://bfydl8m80jxi6" path="res://icon.svg" id="1_2ah34"]
+[ext_resource type="PackedScene" uid="uid://c61ki6vvgwnr8" path="res://Components/mover.tscn" id="3_7xx1m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6fcsw"]
+
+[node name="World" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_1rl21")
+
+[node name="Hitbox" type="CollisionShape2D" parent="Player"]
+shape = SubResource("CapsuleShape2D_6fcsw")
+
+[node name="Visual" type="Sprite2D" parent="Player"]
+scale = Vector2(0.222656, 0.230469)
+texture = ExtResource("1_2ah34")
+
+[node name="Mover" parent="Player" instance=ExtResource("3_7xx1m")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
